@@ -11,7 +11,7 @@ import prepare
 
 
 # read in data
-df = pd.read_csv('tiktok_data.csv')
+df = pd.read_csv('data/tiktok_data.csv')
 
 # clean df
 df = prepare.prep_tiktok(df)
@@ -33,17 +33,10 @@ train = train.sort_index()
 st.set_page_config(page_title='Home',
                    page_icon='😀',
                    layout="wide")
-st.title("Home Page")
-st.sidebar.success("Select a page above.")
-# title
-# st.set_page_config(layout="wide")
-# st.title('TikTok Engagement Dashboard')
-# st.markdown('#### The Rise and Fall of Social Media')
+image = Image.open('img/title.png')
+st.image(image,use_column_width=True)
+# st.sidebar.success("Select a page above.")
 
-
-
-# title
-st.set_page_config(layout="wide")
 # st.title('TikTok Engagement Dashboard')
 # st.markdown('#### The Rise and Fall of Social Media')
 
