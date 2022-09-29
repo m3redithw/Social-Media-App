@@ -57,6 +57,6 @@ with st.container():
     with columns[1]:
         st.title('Saroj Duwal')
         st.write('Gmail: saroj.duwal@gmail.com')
-        st.write('Linkedin: [sarojduwal](https://www.linkedin.com/in/sarojduwal/)')
+        st.write('Linkedin: [@sarojduwal](https://www.linkedin.com/in/sarojduwal/)')
         st.write('GitHub: [@Saroj6632](https://github.com/Saroj6632)')
         st.write('Contribution: Acquisition, Exploration, README.md')
