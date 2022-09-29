@@ -11,7 +11,7 @@ import prepare
 
 
 # read in data
-df = pd.read_csv('tiktok_data.csv')
+df = pd.read_csv('data/tiktok_data.csv')
 
 # clean df
 df = prepare.prep_tiktok(df)
