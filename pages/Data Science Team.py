@@ -7,21 +7,6 @@ with st.container():
     columns = st.columns((1,5))
     with columns[0]:
 
-        image = Image.open('img/Meredith.jpg')
-        st.image(image,use_column_width=True)
-    with columns[1]:
-        st.title('Meredith Wang')
-        st.write('Gmail: wang.meredith09@gmail.com')
-        st.write('Linkedin: [@m3redithw](https://www.linkedin.com/in/m3redithw/)')
-        st.write('GitHub: [@m3redithw](https://github.com/m3redithw)')
-        st.write('Contribution: Acquisition, Preparation, Exploration, Modeling, Final Report, Web Development, Dashboard Design, Slide Deck')
-
-st.markdown('***')
-
-with st.container():
-    columns = st.columns((1,5))
-    with columns[0]:
-
         image = Image.open('img/Brad.jpg')
         st.image(image,use_column_width=True)
     with columns[1]:
@@ -60,3 +45,18 @@ with st.container():
         st.write('Linkedin: [@sarojduwal](https://www.linkedin.com/in/sarojduwal/)')
         st.write('GitHub: [@Saroj6632](https://github.com/Saroj6632)')
         st.write('Contribution: Acquisition, Exploration, README.md')
+
+st.markdown('***')
+
+with st.container():
+    columns = st.columns((1,5))
+    with columns[0]:
+
+        image = Image.open('img/Meredith.jpg')
+        st.image(image,use_column_width=True)
+    with columns[1]:
+        st.title('Meredith Wang')
+        st.write('Gmail: wang.meredith09@gmail.com')
+        st.write('Linkedin: [@m3redithw](https://www.linkedin.com/in/m3redithw/)')
+        st.write('GitHub: [@m3redithw](https://github.com/m3redithw)')
+        st.write('Contribution: Acquisition, Preparation, Exploration, Modeling, Final Report, Web Development, Dashboard Design, Slide Deck')
