@@ -5,6 +5,7 @@ import plotly.express as px
 import plotly.figure_factory as ff
 import plotly.offline as pyo
 import plotly.graph_objs as go
+import scipy
 import datetime
 from PIL import Image
 # functions
@@ -106,7 +107,7 @@ if options =='All':
 
     with columns[1]:
         # VIDEO LENGTH DISTPLOT
-        x = df[df.duration<200].duration
+        x = df[df.duration<200]['duration']
         hist_data = [x]
         group_labels = ['Video Duration'] # name of the dataset
 
