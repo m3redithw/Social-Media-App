@@ -47,28 +47,42 @@ options = st.sidebar.radio('Category', options=['All', 'Food', 'Humor', 'Politic
 # st.header('Engagement per Niche Over Time')
 # all
 if options =='All':
+    st.markdown('## Engagement Stats')
+    st.text("NOTE: figures above represents the average of each engagement metric.")
     columns = st.columns((1,1,1,1))
     with columns[0]:
-        df = train[train.views<150000000]
-        fig = px.box(df, y='views', points = 'all', color_discrete_sequence = ['#3c567f'], labels ={'views':'Views'})
+        image = Image.open('img/views.png')
+        st.image(image,use_column_width=True)
+
+        df1 = df[df.views<165000000]
+        fig = px.box(df1, y='views', points = 'all', color_discrete_sequence = ['#3c567f'], labels ={'views':'Views'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
         st.plotly_chart(fig, use_container_width=True)
 
     with columns[1]:
-        df = train.likes
-        fig = px.box(df, y='likes', points = 'all', color_discrete_sequence = ['#6975ab'],  labels ={'likes':'Likes'})
+        image = Image.open('img/likes.png')
+        st.image(image,use_column_width=True)
+
+        df1 = df.likes
+        fig = px.box(df1, y='likes', points = 'all', color_discrete_sequence = ['#6975ab'],  labels ={'likes':'Likes'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
         st.plotly_chart(fig, use_container_width=True)
 
     with columns[2]:
-        df = train[train.comments<218000]
-        fig = px.box(df, y='comments', points = 'all', color_discrete_sequence = ['#9d93d5'],  labels ={'comments':'Comments'})
+        image = Image.open('img/comments.png')
+        st.image(image,use_column_width=True)
+
+        df1 = df[df.comments<218000]
+        fig = px.box(df1, y='comments', points = 'all', color_discrete_sequence = ['#9d93d5'],  labels ={'comments':'Comments'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
         st.plotly_chart(fig, use_container_width=True)
 
     with columns[3]:
-        df = train[train.shares<1200000]
-        fig = px.box(df, y='shares', points = 'all', color_discrete_sequence = ['#edd2fe'],  labels ={'shares':'Shares'})
+        image = Image.open('img/shares.png')
+        st.image(image,use_column_width=True)
+        
+        df1 = df[df.shares<1200000]
+        fig = px.box(df1, y='shares', points = 'all', color_discrete_sequence = ['#edd2fe'],  labels ={'shares':'Shares'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
         st.plotly_chart(fig, use_container_width=True)
 
