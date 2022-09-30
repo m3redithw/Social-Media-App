@@ -11,7 +11,9 @@ import prepare
 
 
 # read in data
-df = pd.read_csv('data/tiktok_data.csv')
+path = '/Users/williambaldridge/codeup-data-science/streamlit/'
+
+df = pd.read_csv(path+'data/tiktok_data.csv')
 
 # clean df
 df = prepare.prep_tiktok(df)
