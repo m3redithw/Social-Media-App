@@ -11,10 +11,11 @@ import prepare
 
 
 # read in data
-df = pd.read_csv('data/tiktok_data.csv')
-
+df = pd.read_csv('../data/tiktok_data.csv')
+tiktok = pd.read_csv('../data/tiktok_data.csv')
 # clean df
 df = prepare.prep_tiktok(df)
+tiktok = prepare.prep_tiktok(tiktok)
 
 # set date as index
 df.set_index('date', inplace=True)
@@ -30,8 +31,6 @@ train = df[:train_size]
 train = train.sort_index()
 
 
-# st.title("Dashboard")
-
 # title
 st.set_page_config(layout="wide")
 # st.title('TikTok Engagement Dashboard')
@@ -39,7 +38,7 @@ st.set_page_config(layout="wide")
 
 # sidebar
 with st.sidebar.container():
-    image = Image.open('img/tiktok_logo.png')
+    image = Image.open('../img/tiktok_logo.png')
     st.image(image,use_column_width=True)
 st.sidebar.title('Pick Your Niche')
 options = st.sidebar.radio('Category', options=['All', 'Food', 'Humor', 'Political', 'Fashion & Beauty', 'Fitness & Lifestyle'])
@@ -78,7 +77,7 @@ if options =='All':
     st.text("NOTE: stats directly below this line represents the average of each engagement metric.")
     columns = st.columns((1,1,1,1))
     with columns[0]:
-        image = Image.open('img/views.png')
+        image = Image.open('../img/views.png')
         st.image(image,use_column_width=True)
 
         # boxplot
@@ -88,7 +87,7 @@ if options =='All':
         st.plotly_chart(fig, use_container_width=True)
 
     with columns[1]:
-        image = Image.open('img/likes.png')
+        image = Image.open('../img/likes.png')
         st.image(image,use_column_width=True)
 
         # boxplot
@@ -98,7 +97,7 @@ if options =='All':
         st.plotly_chart(fig, use_container_width=True)
 
     with columns[2]:
-        image = Image.open('img/comments.png')
+        image = Image.open('../img/comments.png')
         st.image(image,use_column_width=True)
 
         # boxplot
@@ -108,13 +107,27 @@ if options =='All':
         st.plotly_chart(fig, use_container_width=True)
 
     with columns[3]:
-        image = Image.open('img/shares.png')
+        image = Image.open('../img/shares.png')
         st.image(image,use_column_width=True)
 
         # boxplot
         df1 = df[df.shares<1200000]
         fig = px.box(df1, y='shares', points = 'all', color_discrete_sequence = ['#9d93d5'],  labels ={'shares':'Shares'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
+        st.plotly_chart(fig, use_container_width=True)
+
+    # BOTTOM
+    st.markdown("## Engagment vs. Video Length per Category")
+    options = ['Views', 'Likes', 'Comments', 'Shares']
+    selected = st.selectbox("Please select an engagement metric:", options = options)
+    if options == 'Views':
+        view_data = pd.DataFrame(df.groupby(['category', 'length'])['views'].mean()).reset_index()
+        print(view_data.head())
+        fig = px.bar(view_data, x='length', y='views', color = 'category',
+                     color_discrete_map={'Fashion':'#6975AB', 'Food': '#3C567F',
+                                         'Humor': "#133854", 'Political': '#D7B1FA', 'Fitness & Lifestyle': '#9D93D5'},
+                     barmode = 'group')
+        fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
         st.plotly_chart(fig, use_container_width=True)
 
 
@@ -137,7 +150,7 @@ if options == 'Food':
         st.plotly_chart(fig1, use_container_width=True)
     with columns[1]:
         # st.markdown(" ")
-        image = Image.open('img/food_size.png')
+        image = Image.open('../img/food_size.png')
         st.image(image,use_column_width=True)
         st.markdown("#### Avg. Influencer Follower Count")
         st.markdown('***')
@@ -271,11 +284,11 @@ if options == 'Humor':
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
         st.plotly_chart(fig, use_container_width=True)
     with columns[1]:
-        image = Image.open('img/humor_size.png')
+        image = Image.open('../img/humor_size.png')
         st.image(image,use_column_width=True)
         st.markdown("#### Avg. Influencer Follower Count")
         st.markdown('***')
-        image = Image.open('img/humor_stats.png')
+        image = Image.open('../img/humor_stats.png')
         st.image(image,use_column_width=True)
 
     # bottom
@@ -403,11 +416,11 @@ if options == 'Political':
         st.plotly_chart(fig, use_container_width=True)
 
     with columns[1]:
-        image = Image.open('img/political_size.png')
+        image = Image.open('../img/political_size.png')
         st.image(image,use_column_width=True)
         st.markdown("#### Avg. Influencer Follower Count")
         st.markdown('***')
-        image = Image.open('img/political_stats.png')
+        image = Image.open('../img/political_stats.png')
         st.image(image,use_column_width=True)
 
 
@@ -531,7 +544,7 @@ if options == 'Fashion & Beauty':
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
         st.plotly_chart(fig, use_container_width=True)
     with columns[1]:
-        image = Image.open('img/fashion_size.png')
+        image = Image.open('../img/fashion_size.png')
         st.image(image,use_column_width=True)
         st.markdown("#### Avg. Influencer Follower Count")
         st.markdown('***')
@@ -654,11 +667,11 @@ if options == 'Fitness & Lifestyle':
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
         st.plotly_chart(fig, use_container_width=True)
     with columns[1]:
-        image = Image.open('img/fitness_size.png')
+        image = Image.open('../img/fitness_size.png')
         st.image(image,use_column_width=True)
         st.markdown("#### Avg. Influencer Follower Count")
         st.markdown('***')
-        image = Image.open('img/fitness_stats.png')
+        image = Image.open('../img/fitness_stats.png')
         st.image(image,width = 350)
     # bottom
     st.title("Engagement Analysis")
