@@ -59,6 +59,8 @@ tiktok = pd.read_csv('data/tiktok_data.csv')
 # clean df
 df = prep_tiktok(df)
 tiktok = prep_tiktok(tiktok)
+tiktok = tiktok[tiktok.date >= '2018-12-01']
+tiktok = tiktok[tiktok.date <= '2022-09-10']
 
 # set date as index
 df.set_index('date', inplace=True)
@@ -159,13 +161,14 @@ if options =='All':
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
         st.plotly_chart(fig, use_container_width=True)
 
+##=================================================================================##
+
     # BOTTOM
     st.markdown("## Engagment vs. Video Length per Category")
     options = ['Views', 'Likes', 'Comments', 'Shares']
     selected = st.selectbox("Please select an engagement metric:", options = options)
-    if options == 'Views':
+    if selected == 'Views':
         view_data = pd.DataFrame(tiktok.groupby(['category', 'length'])['views'].mean()).reset_index()
-        print(view_data.head())
         fig = px.bar(view_data, x='length', y='views', color = 'category',
                      color_discrete_map={'Fashion':'#6975AB', 'Food': '#3C567F',
                                          'Humor': "#133854", 'Political': '#D7B1FA', 'Fitness & Lifestyle': '#9D93D5'},
@@ -173,6 +176,35 @@ if options =='All':
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
         st.plotly_chart(fig, use_container_width=True)
 
+    if selected == 'Likes':
+        like_data = pd.DataFrame(tiktok.groupby(['category', 'length'])['likes'].mean()).reset_index()
+        fig = px.bar(like_data, x='length', y='likes', color = 'category',
+                     color_discrete_map={'Fashion':'#6975AB', 'Food': '#3C567F',
+                                         'Humor': "#133854", 'Political': '#D7B1FA', 'Fitness & Lifestyle': '#9D93D5'},
+                     barmode = 'group')
+        fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
+        st.plotly_chart(fig, use_container_width=True)
+
+    if selected == 'Comments':
+        comment_data = pd.DataFrame(tiktok.groupby(['category', 'length'])['comments'].mean()).reset_index()
+        fig = px.bar(view_data, x='length', y='comments', color = 'category',
+                     color_discrete_map={'Fashion':'#6975AB', 'Food': '#3C567F',
+                                         'Humor': "#133854", 'Political': '#D7B1FA', 'Fitness & Lifestyle': '#9D93D5'},
+                     barmode = 'group')
+        fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
+        st.plotly_chart(fig, use_container_width=True)
+
+    if selected == 'shares':
+        share_data = pd.DataFrame(tiktok.groupby(['category', 'length'])['shares'].mean()).reset_index()
+        fig = px.bar(share_data, x='length', y='shares', color = 'category',
+                     color_discrete_map={'Fashion':'#6975AB', 'Food': '#3C567F',
+                                         'Humor': "#133854", 'Political': '#D7B1FA', 'Fitness & Lifestyle': '#9D93D5'},
+                     barmode = 'group')
+        fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
+        st.plotly_chart(fig, use_container_width=True)
+
+##=================================================================================##
+##=================================================================================##
 
 # food
 if options == 'Food':
