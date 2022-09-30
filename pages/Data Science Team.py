@@ -7,7 +7,7 @@ with st.container():
     columns = st.columns((1,5))
     with columns[0]:
 
-        image = Image.open(path+'img/Brad.jpg')
+        image = Image.open('img/Brad.jpg')
         st.image(image,use_column_width=True)
     with columns[1]:
         st.title('Brad Gauvin')
@@ -22,7 +22,7 @@ with st.container():
     columns = st.columns((1,5))
     with columns[0]:
 
-        image = Image.open(path+'img/Jess.png')
+        image = Image.open('img/Jess.png')
         st.image(image,use_column_width=True)
     with columns[1]:
         st.title('Jessica Gardin')
@@ -37,7 +37,7 @@ with st.container():
     columns = st.columns((1,5))
     with columns[0]:
 
-        image = Image.open(path+'img/Saroj.jpg')
+        image = Image.open('img/Saroj.jpg')
         st.image(image,use_column_width=True)
     with columns[1]:
         st.title('Saroj Duwal')
@@ -52,7 +52,7 @@ with st.container():
     columns = st.columns((1,5))
     with columns[0]:
 
-        image = Image.open(path+'img/Meredith.jpg')
+        image = Image.open('img/Meredith.jpg')
         st.image(image,use_column_width=True)
     with columns[1]:
         st.title('Meredith Wang')
