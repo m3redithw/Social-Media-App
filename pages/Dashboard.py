@@ -42,9 +42,35 @@ with st.sidebar.container():
     image = Image.open('img/tiktok_logo.png')
     st.image(image,use_column_width=True)
 st.sidebar.title('Pick Your Niche')
-options = st.sidebar.radio('Category', options=['Food', 'Humor', 'Political', 'Fashion & Beauty', 'Fitness & Lifestyle'])
+options = st.sidebar.radio('Category', options=['All', 'Food', 'Humor', 'Political', 'Fashion & Beauty', 'Fitness & Lifestyle'])
 
 # st.header('Engagement per Niche Over Time')
+# all
+if options =='All':
+    columns = st.columns((1,1,1,1))
+    with columns[0]:
+        df = train[train.views<150000000]
+        fig = px.box(df, y='views', points = 'all', color_discrete_sequence = ['#3c567f'])
+        fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
+        st.plotly_chart(fig, use_container_width=True)
+
+    with columns[1]:
+        df = train.likes
+        fig = px.box(df, y='likes', points = 'all', color_discrete_sequence = ['#6975ab'])
+        fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
+        st.plotly_chart(fig, use_container_width=True)
+
+    with columns[2]:
+        df = train[train.comments<200000]
+        fig = px.box(df, y='comments', points = 'all', color_discrete_sequence = ['#9d93d5'])
+        fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
+        st.plotly_chart(fig, use_container_width=True)
+
+    with columns[3]:
+        df = train[train.shares<1000000]
+        fig = px.box(df, y='shares', points = 'all', color_discrete_sequence = ['#edd2fe'])
+        fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
+        st.plotly_chart(fig, use_container_width=True)
 
 # food
 if options == 'Food':
