@@ -47,13 +47,41 @@ options = st.sidebar.radio('Category', options=['All', 'Food', 'Humor', 'Politic
 # st.header('Engagement per Niche Over Time')
 # all
 if options =='All':
+    st.markdown('## TikTok Video Content Duration')
+    columns = st.columns((3, 1.5))
+
+    with columns[0]:
+        # BARCHART
+
+        fig = px.histogram(df, x='length', title='Content Length Distribution', template = "plotly_dark",
+                           color='length', color_discrete_map={'Medium: 15-60s':'#133854', 'Short: 0-15s': '#6975ab', 'Long: 1-3mins': "#9d93d5", 'Extra-long: >3mins': '#edd2fe'},
+                           labels={
+                               'length':'Video Duration', 'count':'Amount of Videos'
+
+                           })
+        fig.update_xaxes(categoryorder='array', categoryarray=['Medium: 15-60s', 'Short: 0-15s', 'Long: 1-3mins', 'Extra-long: >3mins'])
+        fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size=16)
+        st.plotly_chart(fig, use_container_width=True)
+
+    with columns[1]:
+        # VIDEO LENGTH DISTPLOT
+        x = df[df.duration<200].duration
+        hist_data = [x]
+        group_labels = ['Video Duration'] # name of the dataset
+
+        fig = ff.create_distplot(hist_data, group_labels, colors = ['#f3e2fe'])
+        fig.update_layout(title_text='Video Duration (by second) Distribution', paper_bgcolor="#202020", plot_bgcolor='#202020', font_size = 16, height=500)
+        st.plotly_chart(fig, use_container_width=True)
+
+    # ENGAGEMENT STATS
     st.markdown('## Engagement Stats')
-    st.text("NOTE: figures above represents the average of each engagement metric.")
+    st.text("NOTE: stats directly below this line represents the average of each engagement metric.")
     columns = st.columns((1,1,1,1))
     with columns[0]:
         image = Image.open('img/views.png')
         st.image(image,use_column_width=True)
 
+        # boxplot
         df1 = df[df.views<165000000]
         fig = px.box(df1, y='views', points = 'all', color_discrete_sequence = ['#3c567f'], labels ={'views':'Views'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
@@ -63,6 +91,7 @@ if options =='All':
         image = Image.open('img/likes.png')
         st.image(image,use_column_width=True)
 
+        # boxplot
         df1 = df.likes
         fig = px.box(df1, y='likes', points = 'all', color_discrete_sequence = ['#6975ab'],  labels ={'likes':'Likes'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
@@ -72,19 +101,22 @@ if options =='All':
         image = Image.open('img/comments.png')
         st.image(image,use_column_width=True)
 
+        # boxplot
         df1 = df[df.comments<218000]
-        fig = px.box(df1, y='comments', points = 'all', color_discrete_sequence = ['#9d93d5'],  labels ={'comments':'Comments'})
+        fig = px.box(df1, y='comments', points = 'all', color_discrete_sequence = ['#edd2fe'],  labels ={'comments':'Comments'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
         st.plotly_chart(fig, use_container_width=True)
 
     with columns[3]:
         image = Image.open('img/shares.png')
         st.image(image,use_column_width=True)
-        
+
+        # boxplot
         df1 = df[df.shares<1200000]
-        fig = px.box(df1, y='shares', points = 'all', color_discrete_sequence = ['#edd2fe'],  labels ={'shares':'Shares'})
+        fig = px.box(df1, y='shares', points = 'all', color_discrete_sequence = ['#9d93d5'],  labels ={'shares':'Shares'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
         st.plotly_chart(fig, use_container_width=True)
+
 
 # food
 if options == 'Food':
