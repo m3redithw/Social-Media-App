@@ -172,7 +172,7 @@ if options =='All':
         fig = px.bar(view_data, x='length', y='views', color = 'category',
                      color_discrete_map={'Fashion':'#6975AB', 'Food': '#3C567F',
                                          'Humor': "#133854", 'Political': '#D7B1FA', 'Fitness & Lifestyle': '#9D93D5'},
-                     barmode = 'group')
+                     barmode = 'group', labels ={'length':'Video Length', 'views':'Views'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
         st.plotly_chart(fig, use_container_width=True)
 
@@ -181,7 +181,7 @@ if options =='All':
         fig = px.bar(like_data, x='length', y='likes', color = 'category',
                      color_discrete_map={'Fashion':'#6975AB', 'Food': '#3C567F',
                                          'Humor': "#133854", 'Political': '#D7B1FA', 'Fitness & Lifestyle': '#9D93D5'},
-                     barmode = 'group')
+                     barmode = 'group', labels ={'length':'Video Length', 'likes':'Likes'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
         st.plotly_chart(fig, use_container_width=True)
 
@@ -190,7 +190,7 @@ if options =='All':
         fig = px.bar(comment_data, x='length', y='comments', color = 'category',
                      color_discrete_map={'Fashion':'#6975AB', 'Food': '#3C567F',
                                          'Humor': "#133854", 'Political': '#D7B1FA', 'Fitness & Lifestyle': '#9D93D5'},
-                     barmode = 'group')
+                     barmode = 'group', labels ={'length':'Video Length', 'comments':'Comments'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
         st.plotly_chart(fig, use_container_width=True)
 
@@ -199,7 +199,7 @@ if options =='All':
         fig = px.bar(share_data, x='length', y='shares', color = 'category',
                      color_discrete_map={'Fashion':'#6975AB', 'Food': '#3C567F',
                                          'Humor': "#133854", 'Political': '#D7B1FA', 'Fitness & Lifestyle': '#9D93D5'},
-                     barmode = 'group')
+                     barmode = 'group', labels ={'length':'Video Length', 'shares':'Shares'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
         st.plotly_chart(fig, use_container_width=True)
 
