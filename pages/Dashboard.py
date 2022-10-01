@@ -187,14 +187,14 @@ if options =='All':
 
     if selected == 'Comments':
         comment_data = pd.DataFrame(tiktok.groupby(['category', 'length'])['comments'].mean()).reset_index()
-        fig = px.bar(view_data, x='length', y='comments', color = 'category',
+        fig = px.bar(comment_data, x='length', y='comments', color = 'category',
                      color_discrete_map={'Fashion':'#6975AB', 'Food': '#3C567F',
                                          'Humor': "#133854", 'Political': '#D7B1FA', 'Fitness & Lifestyle': '#9D93D5'},
                      barmode = 'group')
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16)
         st.plotly_chart(fig, use_container_width=True)
 
-    if selected == 'shares':
+    if selected == 'Shares':
         share_data = pd.DataFrame(tiktok.groupby(['category', 'length'])['shares'].mean()).reset_index()
         fig = px.bar(share_data, x='length', y='shares', color = 'category',
                      color_discrete_map={'Fashion':'#6975AB', 'Food': '#3C567F',
