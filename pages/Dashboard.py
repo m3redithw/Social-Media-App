@@ -263,7 +263,7 @@ if options == 'Food':
     # VIEWS
     if eng_selected =='Views':
         with columns[0]:
-            data = train[train.category =='Food']
+            data = df[df.category =='Food']
             fig = px.histogram(
                 data, x="views",
                 marginal = 'rug',range_x=[800000, 18600000],
@@ -271,8 +271,8 @@ if options == 'Food':
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Food'].index,
-                                y = train[train.category=='Food'].views,
+            trace1 = go.Scatter(x = df[df.category=='Food'].index,
+                                y = df[df.category=='Food'].views,
                                 mode = 'lines',
                                 name = 'Views',
                                 marker=dict(
@@ -287,7 +287,7 @@ if options == 'Food':
     # LIKES
     if eng_selected =='Likes':
         with columns[0]:
-            data = train[train.category =='Food']
+            data = df[df.category =='Food']
             fig = px.histogram(
                 data, x="likes",
                 marginal = 'rug',range_x=[180000, 2200000],
@@ -296,8 +296,8 @@ if options == 'Food':
             st.plotly_chart(fig, use_container_width=True)
 
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Food'].index,
-                                y = train[train.category=='Food'].likes,
+            trace1 = go.Scatter(x = df[df.category=='Food'].index,
+                                y = df[df.category=='Food'].likes,
                                 mode = 'lines',
                                 name = 'Likes',
                                 marker=dict(
@@ -312,7 +312,7 @@ if options == 'Food':
     # COMMENTS
     if eng_selected =='Comments':
         with columns[0]:
-            data = train[train.category =='Food']
+            data = df[df.category =='Food']
             fig = px.histogram(
                 data, x="comments",
                 marginal = 'rug',range_x=[500, 22200],
@@ -321,8 +321,8 @@ if options == 'Food':
             st.plotly_chart(fig, use_container_width=True)
 
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Food'].index,
-                                y = train[train.category=='Food'].comments,
+            trace1 = go.Scatter(x = df[df.category=='Food'].index,
+                                y = df[df.category=='Food'].comments,
                                 mode = 'lines',
                                 name = 'Comments',
                                 marker=dict(
@@ -338,7 +338,7 @@ if options == 'Food':
     if eng_selected =='Shares':
         with columns[0]:
 
-            data = train[train.category =='Food']
+            data = df[df.category =='Food']
             fig = px.histogram(
                 data, x="shares",
                 marginal = 'rug',range_x=[0, 200000],
@@ -347,8 +347,8 @@ if options == 'Food':
             st.plotly_chart(fig, use_container_width=True)
 
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Food'].index,
-                                y = train[train.category=='Food'].shares,
+            trace1 = go.Scatter(x = df[df.category=='Food'].index,
+                                y = df[df.category=='Food'].shares,
                                 mode = 'lines',
                                 name = 'Shares',
                                 marker=dict(
@@ -395,7 +395,7 @@ if options == 'Humor':
     # VIEWS
     if eng_selected =='Views':
         with columns[0]:
-            data = train[train.category =='Humor']
+            data = df[df.category =='Humor']
             fig = px.histogram(
                 data, x="views",
                 marginal = 'rug',range_x=[100000, 64000000], labels = {'views': "Views"},
@@ -403,8 +403,8 @@ if options == 'Humor':
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Humor'].index,
-                                y = train[train.category=='Humor'].views,
+            trace1 = go.Scatter(x = df[df.category=='Humor'].index,
+                                y = df[df.category=='Humor'].views,
                                 mode = 'lines',
                                 name = 'Views',
                                 marker=dict(
@@ -419,7 +419,7 @@ if options == 'Humor':
     # LIKES
     if eng_selected =='Likes':
         with columns[0]:
-            data = train[train.category =='Humor']
+            data = df[df.category =='Humor']
             fig = px.histogram(
                 data, x="likes",
                 marginal = 'rug',range_x=[50000, 9000000],labels = {'views': "Views"},
@@ -428,8 +428,8 @@ if options == 'Humor':
             st.plotly_chart(fig, use_container_width=True)
 
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Humor'].index,
-                                y = train[train.category=='Humor'].likes,
+            trace1 = go.Scatter(x = df[df.category=='Humor'].index,
+                                y = df[df.category=='Humor'].likes,
                                 mode = 'lines',
                                 name = 'Likes',
                                 marker=dict(
@@ -444,7 +444,7 @@ if options == 'Humor':
     # COMMENTS
     if eng_selected =='Comments':
         with columns[0]:
-            data = train[train.category =='Humor']
+            data = df[df.category =='Humor']
             fig = px.histogram(
                 data, x="comments",
                 marginal = 'rug',range_x=[3000, 55000],labels = {'views': "Views"},
@@ -453,8 +453,8 @@ if options == 'Humor':
             st.plotly_chart(fig, use_container_width=True)
 
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Humor'].index,
-                                y = train[train.category=='Humor'].comments,
+            trace1 = go.Scatter(x = df[df.category=='Humor'].index,
+                                y = df[df.category=='Humor'].comments,
                                 mode = 'lines',
                                 name = 'Comments',
                                 marker=dict(
@@ -469,7 +469,7 @@ if options == 'Humor':
     # SHARE
     if eng_selected =='Shares':
         with columns[0]:
-            data = train[train.category =='Humor']
+            data = df[df.category =='Humor']
             fig = px.histogram(
                 data, x="shares",
                 marginal = 'rug',range_x=[0, 120000],labels = {'views': "Views"},
@@ -478,8 +478,8 @@ if options == 'Humor':
             st.plotly_chart(fig, use_container_width=True)
 
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Humor'].index,
-                                y = train[train.category=='Humor'].shares,
+            trace1 = go.Scatter(x = df[df.category=='Humor'].index,
+                                y = df[df.category=='Humor'].shares,
                                 mode = 'lines',
                                 name = 'Shares',
                                 marker=dict(
@@ -528,7 +528,7 @@ if options == 'Political':
     # VIEWS
     if eng_selected =='Views':
         with columns[0]:
-            data = train[train.category =='Political']
+            data = df[df.category =='Political']
             fig = px.histogram(
                 data, x="views",
                 marginal = 'rug',range_x=[100000, 9000000],labels = {'views': "Views"},
@@ -536,8 +536,8 @@ if options == 'Political':
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Political'].index,
-                                y = train[train.category=='Political'].views,
+            trace1 = go.Scatter(x = df[df.category=='Political'].index,
+                                y = df[df.category=='Political'].views,
                                 mode = 'lines',
                                 name = 'Views',
                                 marker=dict(
@@ -552,16 +552,16 @@ if options == 'Political':
     # LIKES
     if eng_selected =='Likes':
         with columns[0]:
-            data = train[train.category =='Political']
+            data = df[df.category =='Political']
             fig = px.histogram(
                 data, x="likes",
-                marginal = 'rug',range_x=[10000, 1000000],labels = {'views': "Views"},
+                marginal = 'rug',range_x=[10000, 2000000],labels = {'views': "Views"},
                 title='Avg. Like Count per Video', color_discrete_sequence=['#dfaeff'])
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Political'].index,
-                                y = train[train.category=='Political'].likes,
+            trace1 = go.Scatter(x = df[df.category=='Political'].index,
+                                y = df[df.category=='Political'].likes,
                                 mode = 'lines',
                                 name = 'Likes',
                                 marker=dict(
@@ -575,7 +575,7 @@ if options == 'Political':
     # COMMENTS
     if eng_selected =='Comments':
         with columns[0]:
-            data = train[train.category =='Political']
+            data = df[df.category =='Political']
             fig = px.histogram(
                 data, x="comments",
                 marginal = 'rug',range_x=[1000, 35000],labels = {'views': "Views"},
@@ -583,8 +583,8 @@ if options == 'Political':
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Political'].index,
-                                y = train[train.category=='Political'].comments,
+            trace1 = go.Scatter(x = df[df.category=='Political'].index,
+                                y = df[df.category=='Political'].comments,
                                 mode = 'lines',
                                 name = 'Comments',
                                 marker=dict(
@@ -599,7 +599,7 @@ if options == 'Political':
     # SHARES
     if eng_selected =='Shares':
         with columns[0]:
-            data = train[train.category =='Political']
+            data = df[df.category =='Political']
             fig = px.histogram(
                 data, x="shares",
                 marginal = 'rug',range_x=[500, 80000],labels = {'views': "Views"},
@@ -607,8 +607,8 @@ if options == 'Political':
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Political'].index,
-                                y = train[train.category=='Political'].shares,
+            trace1 = go.Scatter(x = df[df.category=='Political'].index,
+                                y = df[df.category=='Political'].shares,
                                 mode = 'lines',
                                 name = 'Shares',
                                 marker=dict(
@@ -654,16 +654,16 @@ if options == 'Fashion & Beauty':
     # VIEWS
     if eng_selected =='Views':
         with columns[0]:
-            data = train[train.category =='Fashion']
+            data = df[df.category =='Fashion']
             fig = px.histogram(
                 data, x="views",
-                marginal = 'rug',range_x=[100000, 25000000],labels = {'views': "Views"},
+                marginal = 'rug',range_x=[100000, 30000000],labels = {'views': "Views"},
                 title='Avg. View Count per Video', color_discrete_sequence=['#dfaeff'])
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Fashion'].index,
-                                y = train[train.category=='Fashion'].views,
+            trace1 = go.Scatter(x = df[df.category=='Fashion'].index,
+                                y = df[df.category=='Fashion'].views,
                                 mode = 'lines',
                                 name = 'Views',
                                 marker=dict(
@@ -677,7 +677,7 @@ if options == 'Fashion & Beauty':
     # LIKES
     if eng_selected =='Likes':
         with columns[0]:
-            data = train[train.category =='Fashion']
+            data = df[df.category =='Fashion']
             fig = px.histogram(
                 data, x="likes",
                 marginal = 'rug',range_x=[10200, 4000000],labels = {'views': "Views"},
@@ -685,8 +685,8 @@ if options == 'Fashion & Beauty':
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Fashion'].index,
-                                y = train[train.category=='Fashion'].likes,
+            trace1 = go.Scatter(x = df[df.category=='Fashion'].index,
+                                y = df[df.category=='Fashion'].likes,
                                 mode = 'lines',
                                 name = 'Likes',
                                 marker=dict(
@@ -700,7 +700,7 @@ if options == 'Fashion & Beauty':
     # COMMENTS
     if eng_selected =='Comments':
         with columns[0]:
-            data = train[train.category =='Fashion']
+            data = df[df.category =='Fashion']
             fig = px.histogram(
                 data, x="comments",
                 marginal = 'rug',range_x=[300, 160000],labels = {'views': "Views"},
@@ -708,8 +708,8 @@ if options == 'Fashion & Beauty':
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Fashion'].index,
-                                y = train[train.category=='Fashion'].comments,
+            trace1 = go.Scatter(x = df[df.category=='Fashion'].index,
+                                y = df[df.category=='Fashion'].comments,
                                 mode = 'lines',
                                 name = 'Comments',
                                 marker=dict(
@@ -723,7 +723,7 @@ if options == 'Fashion & Beauty':
     # SHARES
     if eng_selected =='Shares':
         with columns[0]:
-            data = train[train.category =='Fashion']
+            data = df[df.category =='Fashion']
             fig = px.histogram(
                 data, x="shares",
                 marginal = 'rug',range_x=[0, 100000],labels = {'views': "Views"},
@@ -731,8 +731,8 @@ if options == 'Fashion & Beauty':
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Fashion'].index,
-                                y = train[train.category=='Fashion'].shares,
+            trace1 = go.Scatter(x = df[df.category=='Fashion'].index,
+                                y = df[df.category=='Fashion'].shares,
                                 mode = 'lines',
                                 name = 'Shares',
                                 marker=dict(
@@ -778,7 +778,7 @@ if options == 'Fitness & Lifestyle':
     if eng_selected =='Views':
         with columns[0]:
 
-            data = train[train.category =='Fitness & Lifestyle']
+            data = df[df.category =='Fitness & Lifestyle']
             fig = px.histogram(
                 data, x="views",
                 marginal = 'rug',range_x=[0, 25000000],labels = {'views': "Views"},
@@ -786,8 +786,8 @@ if options == 'Fitness & Lifestyle':
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Fitness & Lifestyle'].index,
-                                y = train[train.category=='Fitness & Lifestyle'].views,
+            trace1 = go.Scatter(x = df[df.category=='Fitness & Lifestyle'].index,
+                                y = df[df.category=='Fitness & Lifestyle'].views,
                                 mode = 'lines',
                                 name = 'Views',
                                 marker=dict(
@@ -801,7 +801,7 @@ if options == 'Fitness & Lifestyle':
     # LIKES
     if eng_selected =='Likes':
         with columns[0]:
-            data = train[train.category =='Fitness & Lifestyle']
+            data = df[df.category =='Fitness & Lifestyle']
             fig = px.histogram(
                 data, x="likes",
                 marginal = 'rug',range_x=[0, 4000000],labels = {'views': "Views"},
@@ -809,8 +809,8 @@ if options == 'Fitness & Lifestyle':
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Fitness & Lifestyle'].index,
-                                y = train[train.category=='Fitness & Lifestyle'].likes,
+            trace1 = go.Scatter(x = df[df.category=='Fitness & Lifestyle'].index,
+                                y = df[df.category=='Fitness & Lifestyle'].likes,
                                 mode = 'lines',
                                 name = 'Likes',
                                 marker=dict(
@@ -824,7 +824,7 @@ if options == 'Fitness & Lifestyle':
     # COMMENTS
     if eng_selected =='Comments':
         with columns[0]:
-            data = train[train.category =='Fitness & Lifestyle']
+            data = df[df.category =='Fitness & Lifestyle']
             fig = px.histogram(
                 data, x="comments",
                 marginal = 'rug',range_x=[0, 50000],labels = {'views': "Views"},
@@ -832,8 +832,8 @@ if options == 'Fitness & Lifestyle':
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Fitness & Lifestyle'].index,
-                                y = train[train.category=='Fitness & Lifestyle'].comments,
+            trace1 = go.Scatter(x = df[df.category=='Fitness & Lifestyle'].index,
+                                y = df[df.category=='Fitness & Lifestyle'].comments,
                                 mode = 'lines',
                                 name = 'Comments',
                                 marker=dict(
@@ -848,7 +848,7 @@ if options == 'Fitness & Lifestyle':
     # SHARES
     if eng_selected =='Shares':
         with columns[0]:
-            data = train[train.category =='Fitness & Lifestyle']
+            data = df[df.category =='Fitness & Lifestyle']
             fig = px.histogram(
                 data, x="shares",
                 marginal = 'rug',range_x=[0, 120000],labels = {'views': "Views"},
@@ -856,8 +856,8 @@ if options == 'Fitness & Lifestyle':
             fig.update_layout({'plot_bgcolor': '#202020', 'paper_bgcolor': '#202020'})
             st.plotly_chart(fig, use_container_width=True)
         with columns[1]:
-            trace1 = go.Scatter(x = train[train.category=='Fitness & Lifestyle'].index,
-                                y = train[train.category=='Fitness & Lifestyle'].shares,
+            trace1 = go.Scatter(x = df[df.category=='Fitness & Lifestyle'].index,
+                                y = df[df.category=='Fitness & Lifestyle'].shares,
                                 mode = 'lines',
                                 name = 'Shares',
                                 marker=dict(
