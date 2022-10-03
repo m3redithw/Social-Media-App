@@ -226,9 +226,14 @@ if options =='All':
 ##=================================================================================##
     # BOTTOM
     st.markdown('## Engagement Over Time')
-    options = ['Yes', 'No']
+    options = ['No', 'Yes']
     selected = st.selectbox("Display major events:", options = options)
     resample = df.resample('w')[['comments', 'likes', 'views', 'shares']].sum()
+    if selected =='No':
+        fig = px.line(resample, x=resample.index, y='views', color_discrete_sequence=['#E80F88'])
+        fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
+        st.plotly_chart(fig, use_container_width=True)
+
     if selected =='Yes':
         fig = px.line(resample, x=resample.index, y='views', color_discrete_sequence=['#E80F88'])
         # Hong Kong
@@ -260,10 +265,7 @@ if options =='All':
         fig.update_yaxes(showgrid=False)
 
         st.plotly_chart(fig, use_container_width=True)
-    if selected =='No':
-        fig = px.line(resample, x=resample.index, y='views', color_discrete_sequence=['#E80F88'])
-        fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
-        st.plotly_chart(fig, use_container_width=True)
+
 
 
 # food
