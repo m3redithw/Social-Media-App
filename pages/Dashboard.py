@@ -160,10 +160,18 @@ if options =='All':
         fig = px.box(df1, y='shares', points = 'all', color_discrete_sequence = ['#9d93d5'],  labels ={'shares':'Shares'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
         st.plotly_chart(fig, use_container_width=True)
+##=================================================================================##
+    # 3rd ROW
+    st.markdown('## Platform Engagement Comparison')
+    stats = pd.DataFrame({'Trending Content Avg. Engagement': [11237882,1790364,10414], 'Platform': ['TikTok', 'YouTube', 'Instagram']})
+    fig = px.bar(stats, x='Platform', y='Trending Content Avg. Engagement', color = 'Platform', color_discrete_map={'YouTube':'#dfaeff', 'TikTok': '#3C567F',
+                                                                                                'Instagram': "#f3e2fe"})
+    fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
+    st.plotly_chart(fig, use_container_width=True)
 
 ##=================================================================================##
 
-    # MIDDLE
+    # 4th ROW
     columns = st.columns((1,1))
     with columns[0]:
         st.markdown("## Creator's Follower Count vs. Total Engagement")
