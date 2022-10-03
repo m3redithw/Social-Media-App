@@ -234,10 +234,11 @@ if options =='All':
 
     # COVID
     fig.add_vrect(x0='2020-02-01', x1="2020-04-28", fillcolor="#D2DAFF", opacity = 0.25)
-    fig.add_annotation(x='2020-03-20', y=3500000000, text = 'COVID-19 Outbreak', yshift = 5)
+    fig.add_annotation(x='2020-03-20', y=1500000000, text = 'COVID-19 Outbreak', yshift = 5)
 
-    fig.add_vrect(x0="2020-05-24", x1='2020-08-13', annotation_text='George Floyd Protests', annotation_position='bottom left', fillcolor = '#D2DAFF', opacity=0.25)
-    # fig.add_vrect(x0="2021-07-29", x1='2021-07-29', annotation_text='Biden Vaccine Mandate', annotation_position='top left', fillcolor = '#D2DAFF', opacity=0.8)
+    # George Floyd
+    fig.add_vrect(x0="2020-05-24", x1='2020-08-13', fillcolor = '#D2DAFF', opacity=0.25)
+    fig.add_annotation(x='2020-07-12', y=100000000, text = 'George Floyd Protests')
 
     # Election Day
     fig.add_vline(x="2020-12-13", line_width=3, line_dash="dash", line_color="#D2DAFF")
@@ -245,7 +246,7 @@ if options =='All':
 
     # Vaccine Mandate
     fig.add_vline(x='2021-07-29', line_width=3, line_dash="dash", line_color="#D2DAFF" )
-    fig.add_annotation(x='2021-07-29', y=2000000000, text = 'Biden Vaccine Mandate', yshift = 10)
+    fig.add_annotation(x='2021-07-29', y=2000000000, text = 'Biden Vaccine Mandate', yshift = 15)
 
     # Chris Rock
     fig.add_vline(x="2022-04-10", line_width=3, line_dash="dash", line_color="#D2DAFF")
@@ -253,7 +254,7 @@ if options =='All':
 
     fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
     fig.update_xaxes(showgrid=False)
-    # fig.update_yaxes(showgrid=False)
+    fig.update_yaxes(showgrid=False)
 
 
     st.plotly_chart(fig, use_container_width=True, )
