@@ -228,10 +228,35 @@ if options =='All':
     st.markdown('## Engagement Over Time')
     resample = df.resample('w')[['comments', 'likes', 'views', 'shares']].sum()
     fig = px.line(resample, x=resample.index, y='views', color_discrete_sequence=['#E80F88'])
-    fig.add_vline(x="2020-03-10", line_width=3, line_dash="dash", line_color="#D2DAFF")
-    fig.add_vline(x="2019-10-27", line_width=3, line_dash="dash", line_color="#D2DAFF")
+    # Hong Kong
+    fig.add_vrect(x0='2019-03-15', x1="2019-06-22", fillcolor="#D2DAFF", opacity = 0.25)
+    fig.add_annotation(x='2019-05-09', y=500000000, text = 'Hong Kong Protest', yshift = 5)
+
+    # COVID
+    fig.add_vrect(x0='2020-02-01', x1="2020-04-28", fillcolor="#D2DAFF", opacity = 0.25)
+    fig.add_annotation(x='2020-03-20', y=3500000000, text = 'COVID-19 Outbreak', yshift = 5)
+
+    fig.add_vrect(x0="2020-05-24", x1='2020-08-13', annotation_text='George Floyd Protests', annotation_position='bottom left', fillcolor = '#D2DAFF', opacity=0.25)
+    # fig.add_vrect(x0="2021-07-29", x1='2021-07-29', annotation_text='Biden Vaccine Mandate', annotation_position='top left', fillcolor = '#D2DAFF', opacity=0.8)
+
+    # Election Day
+    fig.add_vline(x="2020-12-13", line_width=3, line_dash="dash", line_color="#D2DAFF")
+    fig.add_annotation(x='2020-12-13', y=1720000000, text = 'Election Day', yshift = 10)
+
+    # Vaccine Mandate
+    fig.add_vline(x='2021-07-29', line_width=3, line_dash="dash", line_color="#D2DAFF" )
+    fig.add_annotation(x='2021-07-29', y=2000000000, text = 'Biden Vaccine Mandate', yshift = 10)
+
+    # Chris Rock
+    fig.add_vline(x="2022-04-10", line_width=3, line_dash="dash", line_color="#D2DAFF")
+    fig.add_annotation(x='2022-04-10', y = 3200000000, text = 'Chris Rock & Will Smith', yshift=10)
+
     fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
-    st.plotly_chart(fig, use_container_width=True)
+    fig.update_xaxes(showgrid=False)
+    # fig.update_yaxes(showgrid=False)
+
+
+    st.plotly_chart(fig, use_container_width=True, )
 
 
 # food
@@ -389,7 +414,7 @@ if options == 'Humor':
     with columns[1]:
         image = Image.open('img/humor_size.png')
         st.image(image,use_column_width=True)
-        st.markdown("#### Avg. Influencer Follower Count")
+        st.markdown("#### Avg. Creator Follower Count")
         st.markdown('***')
         image = Image.open('img/humor_stats.png')
         st.image(image,use_column_width=True)
