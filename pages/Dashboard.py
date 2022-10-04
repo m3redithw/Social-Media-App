@@ -236,12 +236,15 @@ if options =='All':
     selected = st.selectbox("Display major events:", options = options)
     resample = df.resample('w')[['comments', 'likes', 'views', 'shares']].sum()
     if selected =='No':
-        fig = px.line(resample, x=resample.index, y='views', color_discrete_sequence=['#E80F88'])
+        fig = px.line(resample, x=resample.index, y='views', color_discrete_sequence=['#E80F88'],  labels={
+            'views':'Total Engagement'})
         fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
         st.plotly_chart(fig, use_container_width=True)
 
     if selected =='Yes':
-        fig = px.line(resample, x=resample.index, y='views', color_discrete_sequence=['#E80F88'])
+        fig = px.line(resample, x=resample.index, y='views', color_discrete_sequence=['#E80F88'], labels={
+            'views':'Total Engagement'
+        })
         # Hong Kong
         fig.add_vrect(x0='2019-03-15', x1="2019-06-22", fillcolor="#D2DAFF", opacity = 0.25)
         fig.add_annotation(x='2019-05-09', y=500000000, text = 'Hong Kong Protest', yshift = 5)
@@ -255,8 +258,8 @@ if options =='All':
         fig.add_annotation(x='2020-07-12', y=100000000, text = 'George Floyd Protests')
 
         # Election Day
-        fig.add_vline(x="2020-12-13", line_width=3, line_dash="dash", line_color="#D2DAFF")
-        fig.add_annotation(x='2020-12-13', y=1720000000, text = 'Election Day', yshift = 10)
+        fig.add_vline(x="2020-11-08", line_width=3, line_dash="dash", line_color="#D2DAFF")
+        fig.add_annotation(x='2020-11-08', y=1720000000, text = 'Election Day', yshift = 10)
 
         # Vaccine Mandate
         fig.add_vline(x='2021-07-29', line_width=3, line_dash="dash", line_color="#D2DAFF" )
@@ -272,6 +275,12 @@ if options =='All':
 
         st.plotly_chart(fig, use_container_width=True)
 
+    ## TOTAL FOLLOWERS
+    resample = df.resample('w')[['total_followers']].sum()
+    st.markdown("## Trending-Video-Creator Follower Count")
+    fig = px.line(resample, x=resample.index, y='total_followers', color_discrete_sequence=['#E80F88'])
+    fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
+    st.plotly_chart(fig, use_container_width=True)
 
 
 # food
@@ -537,6 +546,7 @@ if options == 'Humor':
             layout = go.Layout(title = 'Shares Over Time', plot_bgcolor='#202020', paper_bgcolor='#202020')
             fig = go.Figure(data = data, layout = layout)
             st.plotly_chart(fig, use_container_width=True)
+
 
 ##=================================================================================##
 ##=================================================================================##
