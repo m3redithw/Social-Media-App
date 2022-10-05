@@ -21,11 +21,12 @@ with columns[1]:
     tab1, tab2 = st.tabs(['Following', 'For You'])
 
     with tab1:
-        st.text('work in progress')
-
-    with tab2:
         image = Image.open('img/foryou.png')
         st.image(image,use_column_width=True)
+
+
+    with tab2:
+        st.text('work in progress')
 
 # with columns[2]:
 #     image = Image.open('img/search.png')
