@@ -27,6 +27,6 @@ with columns[1]:
         image = Image.open('img/foryou.png')
         st.image(image,use_column_width=True)
 
-with columns[2]:
-    image = Image.open('img/search.png')
-    st.image(image,width=100)
+# with columns[2]:
+#     image = Image.open('img/search.png')
+#     st.image(image,width=100)
