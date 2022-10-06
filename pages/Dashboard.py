@@ -112,9 +112,9 @@ if options =='All':
         x = df[df.duration<200]['duration']
         hist_data = [x]
         group_labels = ['Video Duration'] # name of the dataset
-
         fig = ff.create_distplot(hist_data, group_labels, colors = ['#f3e2fe'])
         fig.update_layout(title_text='Video Duration (by second) Distribution', paper_bgcolor="#202020", plot_bgcolor='#202020', font_size = 16, height=500)
+        fig.update_xaxes(title = 'Video Duration (second)')
         st.plotly_chart(fig, use_container_width=True)
 
     # ENGAGEMENT STATS
@@ -163,6 +163,7 @@ if options =='All':
 ##=================================================================================##
     # 3rd ROW
     st.markdown('## Platform Engagement Comparison')
+    st.text("NOTE: 2-year global trendy content (top search results) engagement data for each platform.")
     columns = st.columns((4.8,1))
     with columns[0]:
         stats = pd.DataFrame({'Trending Content Avg. Engagement': [11237882,1790364,10414], 'Platform': ['TikTok', 'YouTube', 'Instagram']})
@@ -278,7 +279,8 @@ if options =='All':
     ## TOTAL FOLLOWERS
     resample = df.resample('w')[['total_followers']].sum()
     st.markdown("## Trending-Video-Creator Follower Count")
-    fig = px.line(resample, x=resample.index, y='total_followers', color_discrete_sequence=['#E80F88'])
+    fig = px.line(resample, x=resample.index, y='total_followers', color_discrete_sequence=['#dfaeff'], labels={
+        'total_followers':'Total Follower Count'})
     fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
     st.plotly_chart(fig, use_container_width=True)
 
