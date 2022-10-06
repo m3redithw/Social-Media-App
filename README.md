@@ -3,6 +3,9 @@ by **Meredith Wang**
 
 September 2022 - Present
 
+<img width="424" alt="foryou" src="https://user-images.githubusercontent.com/105242871/194430932-426aed6f-aa42-4f58-ac9a-09f17669067a.png">
+
+
 # Description
 TikTok, a video sharing and relatively new social media platform (funded in 2016), has gained tremendous amount of popularity over the past few years. Understanding their "success metric" and knowing how to attract engagement is extremely important for business and individuals who want to develop their presence on there.
 
