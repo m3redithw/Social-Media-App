@@ -37,7 +37,7 @@ We acquired data of 3 major social media platforms: **TikTok**, **YouTube**, and
 # Key Findings
 ▪️ Over 93% of trending content on TikTok are short(0-15s) & medium(15-60s) videos.
 
-▪️ Video duration and egagement rate is dependent on the cateogory. For example: humor content have the highest performance with extra-long (>3mins) videos, whereas political content perform the best with short (0-15s) videos.
+▪️ Video duration and engagement rate is dependent on the cateogory. For example: humor content have the highest performance with extra-long (>3mins) videos, whereas political content perform the best with short (0-15s) videos.
 
 ▪️ Trending content of all categories on TikTok have 11M views, 1.4M likes, 10.7K comments, and 34.5K shares on average.
 
