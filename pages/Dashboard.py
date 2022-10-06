@@ -114,7 +114,7 @@ if options =='All':
         group_labels = ['Video Duration'] # name of the dataset
         fig = ff.create_distplot(hist_data, group_labels, colors = ['#f3e2fe'])
         fig.update_layout(title_text='Video Duration (by second) Distribution', paper_bgcolor="#202020", plot_bgcolor='#202020', font_size = 16, height=500)
-        fig.update_xaxes(title = 'Duration (second)')
+        fig.update_xaxes(title = 'Video Duration (second)')
         st.plotly_chart(fig, use_container_width=True)
 
     # ENGAGEMENT STATS
@@ -283,6 +283,29 @@ if options =='All':
         'total_followers':'Total Follower Count'})
     fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500)
     st.plotly_chart(fig, use_container_width=True)
+
+    ## PREDICTION
+    st.markdown("## Engagement Forecasting")
+    graph_df = pd.read_csv('data/prediction.csv')
+    graph_df.set_index('ds', inplace = True)
+    graph_df.sort_index(inplace = True)
+    resample = df.resample('w')[['views']].sum()
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=resample.index, y=resample.views, mode='lines',
+                             name='Past (Dec 2019 to Sep 2022)', marker = dict(color='#3C567F')))
+
+    fig.add_trace(go.Scatter(x=graph_df.index, y=graph_df.yhat,
+                             mode='lines',
+                             name='Future (Sep 2022 to Sep 2023)', marker = dict(color='#E80F88')))
+
+    fig.update_layout(paper_bgcolor="#202020", plot_bgcolor='#202020', font_color='#f3e2fe', font_size = 16, height = 500
+                      ,title='Past Total Engagement vs. Facebook Prophet Model Prediction for Future',
+                      xaxis_title='Date',
+                      yaxis_title='Total Engagement')
+    st.plotly_chart(fig, use_container_width=True)
+
+
+
 
 
 # food
