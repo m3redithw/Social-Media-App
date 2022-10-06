@@ -114,7 +114,7 @@ if options =='All':
         group_labels = ['Video Duration'] # name of the dataset
         fig = ff.create_distplot(hist_data, group_labels, colors = ['#f3e2fe'])
         fig.update_layout(title_text='Video Duration (by second) Distribution', paper_bgcolor="#202020", plot_bgcolor='#202020', font_size = 16, height=500)
-        fig.update_xaxes(title = 'Video Duration (second)')
+        fig.update_xaxes(title = 'Duration (second)')
         st.plotly_chart(fig, use_container_width=True)
 
     # ENGAGEMENT STATS
