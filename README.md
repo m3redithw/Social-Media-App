@@ -1,7 +1,9 @@
 # Social Media Engagement Forecasting Web App
 by **Meredith Wang**
 
-September 2022 - Present
+September - October 2022
+
+Click [HERE](https://m3redithw-streamlit-home-4vvfud.streamlitapp.com/) to launch the app :)
 
 <img width="424" alt="foryou" src="https://user-images.githubusercontent.com/105242871/194430932-426aed6f-aa42-4f58-ac9a-09f17669067a.png">
 
